@@ -1,0 +1,81 @@
+/* Home.css */
+.homepage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    position: relative;
+    width: 100%;
+  }
+  
+  .homepage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/immg.png'); /* Path to your image */
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+  
+  .homepage::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .homepage > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+  .nav-items, a {
+    color: white !important;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .img-logo {
+    width: 200px;
+    height: 60px;
+  transition: filter 300ms;
+  object-fit: contain;
+  }
+
+  .img-logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .img-logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+
+  
+  @media (max-width: 768px) {
+    .nav-items {
+    
+      transition: all 0.3s ease-in-out;
+    }
+  
+    .nav-item {
+      text-align: center;
+    }
+  }

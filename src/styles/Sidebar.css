@@ -1,0 +1,88 @@
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgb(55 65 81);
+    color: white;
+    transition: width 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .sidebar.expanded {
+    width: 250px;
+  }
+  
+  .sidebar.collapsed {
+    width: 60px;
+  }
+  
+  .toggle-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    
+  }
+  
+  .sidebar li:hover {
+    background: #808080;
+  }
+  
+  .sidebar .icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: aliceblue;
+  }
+  
+  .sidebar.collapsed .icon {
+    margin-right: 0;
+  }
+  
+  .sidebar .name {
+    font-size: 18px;
+    color: aliceblue;
+  }
+  .sidebar li.selected {
+    background-color: #CC0000;
+  }
+  
+  .sign-out-confirm {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: #444;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .sign-out-confirm p {
+    margin: 0 0 10px;
+  }
+  
+  .sign-out-confirm button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
