@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getJobs, addJob, updateJobStatus, getCustomers, deleteJob  } from '../services/firestore';
+import { getJobs, addJob, updateJobStatus, getCustomers  } from '../services/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 
 const Jobs = () => {
@@ -36,13 +36,6 @@ const Jobs = () => {
   const handleStatusChange = async (jobId, newStatus) => {
     await updateJobStatus(jobId, newStatus);
     fetchJobs();
-  };
-
-  const handleDeleteJob = async (jobId) => {
-    if (window.confirm('Are you sure you want to delete this job?')) {
-      await deleteJob(jobId);
-      fetchJobs();
-    }
   };
 
   return (
