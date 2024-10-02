@@ -22,7 +22,7 @@ const HomePage = () => {
         <img src="/CJ-ART-Logo1.png" alt="City Tax Accountants" className="img-logo w-32 h-12 object-contain" />
       </div>
       <nav className={`nav-container absolute left-0 right-0 top-full ${isMenuOpen ? 'block' : 'hidden'} md:relative md:block`}>
-        <ul className="nav-items flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm p-4 md:p-0">
+        <ul className="nav-options flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm p-4 md:p-0">
           <li className='nav-item'><a href="#" className="hover:text-teal-400">HOME</a></li>
           <li className='nav-item'><a href="#" className="hover:text-teal-400">ABOUT US</a></li>
           <li className='nav-item'><a href="#" className="hover:text-teal-400">OUR SERVICES</a></li>
@@ -31,10 +31,10 @@ const HomePage = () => {
       </nav>
       <div className="hidden md:flex items-center">
         <span className="text-sm mr-4">0812 811 2674</span>
-        <button className="bg-teal-400 text-white px-4 py-1 rounded text-sm">Call us now</button>
+        <button className="bg-teal-400 text-white px-4 py-1 rounded text-sm">Contact us now</button>
       </div>
     </header>
-
+ 
 
     <main className={`flex-grow flex flex-col justify-center px-6 z-10 transition-all duration-300 ease-in-out ${isMenuOpen ? 'mt-40 md:mt-0' : ''}`}>
     <div className="max-w-2xl mx-auto mt-5 text-center md:text-left ">
@@ -48,12 +48,15 @@ const HomePage = () => {
             contact us: cjart@gmail.com | www.cjart.com | +234 812 811 2674
           </p>
           <div className="space-y-4 md:space-y-0 md:space-x-4">
+          <Link to="/register">
             <button className="w-full md:w-auto mb-3 bg-transparent border-2 border-teal-400 text-teal-400 px-6 py-2 rounded-full hover:bg-teal-400 hover:text-white transition duration-300">
-              BOOK APPOINTMENT
+             REGISTER
             </button>
-            <Link to="/dashboard">
-            <button href="/dashboard" className="w-full md:w-auto bg-teal-400 text-white px-6 py-2 rounded-full hover:bg-teal-500 transition duration-300">
-              LOGIN TO CONTINUE
+            </Link>
+
+            <Link to="/login">
+            <button className="w-full md:w-auto bg-teal-400 text-white px-6 py-2 rounded-full hover:bg-teal-500 transition duration-300">
+              LOGIN 
             </button>
             </Link>
           </div>

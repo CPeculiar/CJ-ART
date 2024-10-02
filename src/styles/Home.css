@@ -39,15 +39,16 @@
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+    
   }
-  .nav-items {
+  .nav-options {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 20px;
   }
-  .nav-items, a {
-    color: white !important;
+  .nav-options, a {
+    color: white;
     text-decoration: none;
     list-style: none;
     padding: 0;

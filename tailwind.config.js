@@ -4,7 +4,14 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gold: {
+          DEFAULT: '#FFD700',
+          light: '#FFF0B3',
+        },
+      },
+    },
   },
   plugins: [],
 }

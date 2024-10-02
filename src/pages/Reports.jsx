@@ -30,21 +30,26 @@ const Reports = () => {
 
   return (
     <div className="space-y-6">
-      <Card>
+      <h1 className="text-2xl font-bold text-yellow-900 mb-6">Reports</h1>
+
+      <Card className="bg-white shadow-lg border border-yellow-100">
         <CardHeader>
-          <CardTitle>Generate Report</CardTitle>
+          <CardTitle className="text-yellow-900">Generate Report</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <select
+              className="w-full p-2 border border-yellow-200 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
               value={reportType}
               onChange={(e) => setReportType(e.target.value)}
             >
               <option value="job">Job Report</option>
               <option value="all">All Transactions Report</option>
             </select>
+
             {reportType === 'job' ? (
               <select
+                className="w-full p-2 border border-yellow-200 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 value={selectedJob}
                 onChange={(e) => setSelectedJob(e.target.value)}
               >
@@ -56,31 +61,41 @@ const Reports = () => {
                 ))}
               </select>
             ) : (
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <input
                   type="date"
+                  className="w-full p-2 border border-yellow-200 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   value={dateRange.start}
                   onChange={(e) => setDateRange({ ...dateRange, start: e.target.value })}
                 />
                 <input
                   type="date"
+                  className="w-full p-2 border border-yellow-200 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   value={dateRange.end}
                   onChange={(e) => setDateRange({ ...dateRange, end: e.target.value })}
                 />
               </div>
             )}
-            <button onClick={handleGenerateReport}>Generate Report</button>
+
+            <button
+              onClick={handleGenerateReport}
+              className="w-full bg-yellow-600 text-white py-2 px-4 rounded hover:bg-yellow-700 transition-colors"
+            >
+              Generate Report
+            </button>
           </div>
         </CardContent>
       </Card>
 
       {report && (
-        <Card>
+        <Card className="bg-white shadow-lg border border-yellow-100">
           <CardHeader>
-            <CardTitle>Report</CardTitle>
+            <CardTitle className="text-yellow-900">Report Results</CardTitle>
           </CardHeader>
           <CardContent>
-            <pre>{JSON.stringify(report, null, 2)}</pre>
+            <pre className="bg-yellow-50 p-4 rounded overflow-x-auto text-yellow-800">
+              {JSON.stringify(report, null, 2)}
+            </pre>
           </CardContent>
         </Card>
       )}

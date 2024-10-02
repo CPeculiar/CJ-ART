@@ -1,36 +1,31 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './Navbar';
+import React, { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import Dashboard from '../pages/Dashboard';
-import Customers from '../pages/Customers';
-import Jobs from '../pages/Jobs';
-import Payments from '../pages/Payments';
-import Expenses from '../pages/Expenses';
-import Reports from '../pages/Reports';
-import BankAccounts from '../pages/BankAccounts';
+import Navbar from './Navbar';
 
 const Layout = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();  // Initialize the navigate hook
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const handleSignOut = () => {
+    // Redirect to the login page after sign out
+    navigate('/login');
+  };
+
   return (
-    <Router>
-      <div className="flex h-screen bg-gray-100">
-        <Sidebar />
-        <div className="flex flex-col flex-1 overflow-hidden">
-          <Navbar />
-          <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 p-4">
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/customers" element={<Customers />} />
-              <Route path="/jobs" element={<Jobs />} />
-              <Route path="/payments" element={<Payments />} />
-              <Route path="/expenses" element={<Expenses />} />
-              <Route path="/reports" element={<Reports />} />
-              <Route path="/bank-accounts" element={<BankAccounts />} />
-            </Routes>
-          </main>
-        </div>
+    <div className="flex h-screen bg-gray-100">
+     <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+      <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-16'}`}>
+      <Navbar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} onSignOut={handleSignOut} />
+        <main className="p-4 md:p-6 min-h-screen bg-white">
+          <Outlet />
+        </main>
       </div>
-    </Router>
+    </div>
   );
 };
 

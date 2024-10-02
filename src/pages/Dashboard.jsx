@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { getDashboardData } from '../services/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card'; // src/components/ui/Card.jsx @components/ui/card
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import Sidebar from '../components/Sidebar';
 
   const Dashboard = () => {
     const [dashboardData, setDashboardData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-  
+ 
+
     useEffect(() => {
       const fetchDashboardData = async () => {
         try {
@@ -40,51 +42,64 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
       const data = dashboardData || placeholderData;
   
       return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-          <Card>
+        <div className="space-y-6">
+        <h1 className="text-2xl font-bold text-yellow-900 mb-6">Dashboard</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card className="bg-white shadow-lg border border-yellow-100">
             <CardHeader>
-              <CardTitle>Total Revenue</CardTitle>
+              <CardTitle className="text-yellow-900">Total Revenue</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold">${data.totalRevenue.toFixed(2)}</p>
+              <p className="text-3xl font-bold text-yellow-600">
+                ${dashboardData?.totalRevenue.toFixed(2) || '0.00'}
+              </p>
             </CardContent>
           </Card>
-          <Card>
+
+         <Card className="bg-white shadow-lg border border-yellow-100">
             <CardHeader>
-              <CardTitle>Total Expenses</CardTitle>
+              <CardTitle className="text-yellow-900">Total Expenses</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold">${data.totalExpenses.toFixed(2)}</p>
+              <p className="text-3xl font-bold text-yellow-600">
+              ${data.totalExpenses.toFixed(2)}</p>
             </CardContent>
           </Card>
-          <Card>
+
+          <Card className="bg-white shadow-lg border border-yellow-100">
             <CardHeader>
-              <CardTitle>Net Profit</CardTitle>
+              <CardTitle className="text-yellow-900">Net Profit</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold">${data.netProfit.toFixed(2)}</p>
+              <p className="text-3xl font-bold text-yellow-600">
+              ${data.netProfit.toFixed(2)}</p>
             </CardContent>
           </Card>
-          <Card className="col-span-full">
+          </div>
+
+          <Card className="mt-8 bg-white shadow-lg border border-yellow-100">
             <CardHeader>
-              <CardTitle>Revenue vs Expenses</CardTitle>
+            <CardTitle className="text-yellow-900">Revenue vs Expenses</CardTitle>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={data.revenueVsExpenses}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="month" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="revenue" stroke="#8884d8" name="Revenue" />
-                  <Line type="monotone" dataKey="expenses" stroke="#82ca9d" name="Expenses" />
-                </LineChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-        </div>
-      );
-    };
+
+             <div className="h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={dashboardData?.revenueVsExpenses || []}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#FDF6B2" />
+                <XAxis dataKey="month" stroke="#78350F" />
+                <YAxis stroke="#78350F" />
+                <Tooltip />
+                <Line type="monotone" dataKey="revenue" stroke="#F59E0B" name="Revenue" />
+                <Line type="monotone" dataKey="expenses" stroke="#78350F" name="Expenses" />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
   
     return (
       <div className="dashboard">
