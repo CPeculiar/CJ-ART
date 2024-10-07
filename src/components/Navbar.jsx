@@ -47,7 +47,7 @@ const Navbar = ({ onSignOut, isOpen, toggleSidebar }) => {
     };
 
     return (
-      <div className={`fixed top-0 right-0 h-16 bg-white border-b border-yellow-100 transition-all duration-300 z-40
+      <div className={`fixed top-0 right-0 h-16 bg-white border-b border-yellow-100 transition-all mb-3 duration-300 z-50
         ${isOpen ? 'left-64' : 'left-16'}`}>
         <div className="flex justify-end items-center h-full px-4">
           <div className="flex items-center space-x-4">

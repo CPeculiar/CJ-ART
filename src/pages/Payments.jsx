@@ -128,7 +128,7 @@ const Payments = () => {
                     {jobs.find(j => j.id === payment.jobId)?.description}
                   </p>
                   <p className="text-yellow-800">
-                    <span className="font-semibold">Amount:</span> ${payment.amount}
+                    <span className="font-semibold">Amount:</span> ₦{payment.amount}
                   </p>
                   <p className="text-yellow-800">
                     <span className="font-semibold">Date:</span> {payment.date}

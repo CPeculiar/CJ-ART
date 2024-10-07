@@ -8,10 +8,12 @@ import {
   getDoc,
   doc,
   updateDoc,
+  deleteDoc,
   query,
   where,
   Timestamp
 } from 'firebase/firestore';
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -29,11 +31,29 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Customers
-export const addCustomer = (customer) => addDoc(collection(db, 'customers'), customer);
+// export const addCustomer = (customer) => addDoc(collection(db, 'customers'), customer);
+// export const getCustomers = async () => {
+//   const querySnapshot = await getDocs(collection(db, 'customers'));
+//   return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+// };
 export const getCustomers = async () => {
-  const querySnapshot = await getDocs(collection(db, 'customers'));
+  const customersCollection = collection(db, 'customers');
+  const customerSnapshot = await getDocs(customersCollection);
+  return customerSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
+
+export const addCustomer = async (customerData) => {
+  const customersCollection = collection(db, 'customers');
+  return await addDoc(customersCollection, customerData);
+};
+
+export const searchCustomers = async (name) => {
+  const customersCollection = collection(db, 'customers');
+  const q = query(customersCollection, where('name', '>=', name), where('name', '<=', name + '\uf8ff'));
+  const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
+
 
 // Jobs
 export const addJob = (job) => addDoc(collection(db, 'jobs'), job);
@@ -45,6 +65,11 @@ export const updateJobStatus = async (jobId, newStatus) => {
   const jobRef = doc(db, 'jobs', jobId);
   await updateDoc(jobRef, { status: newStatus });
 };
+export const deleteJob = async (jobId) => {
+  const jobDoc = doc(db, 'jobs', jobId);
+  await deleteDoc(jobDoc);
+};
+
 
 // Payments
 export const addPayment = (payment) => addDoc(collection(db, 'payments'), payment);
@@ -96,9 +121,9 @@ export const getJobReport = async (jobId) => {
   const profit = totalPayments - totalExpenses;
 
   return {
-    job,
-    payments,
-    expenses,
+    job: {},
+    payments: [],
+    expenses: [],
     totalPayments,
     totalExpenses,
     profit
@@ -127,8 +152,8 @@ export const getAllTransactionsReport = async (startDate, endDate) => {
   const netProfit = totalIncome - totalExpenses;
 
   return {
-    payments,
-    expenses,
+   payments: [],
+    expenses: [],
     totalIncome,
     totalExpenses,
     netProfit

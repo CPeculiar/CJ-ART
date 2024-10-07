@@ -15,6 +15,7 @@ import RegistrationForm from './pages/RegistrationForm';
 import NotFound from './pages/NotFound';
 import Layout from './components/Layout';
 import Profile from './pages/Profile';
+import Test from './pages/Test';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             {/* Public routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/test" element={<Test />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegistrationForm />} />
 
