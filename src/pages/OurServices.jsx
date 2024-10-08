@@ -200,10 +200,9 @@ const SocialIcon = ({ href, icon }) => (
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <h2 className="text-2xl font-bold mb-4 md:mb-0 text-white">CJ ART</h2>
             <div className="flex space-x-4 text-white">
-            <SocialIcon href="https://twitter.com/ElochukwuTLBC" icon={<Twitter size={18} />} />
-              <SocialIcon href="https://www.instagram.com/elochukwutlbc" icon={<Instagram size={18} />} />
-              <SocialIcon href="https://www.youtube.com/@thelordsbrethrenchurchintl" icon={<Youtube size={18} />} />
-              <SocialIcon href="https://web.facebook.com/thelordsbrethrenchurchintl" icon={<Facebook size={18} />} />
+            <SocialIcon href="https://www.facebook.com/share/1XGrPAxi4u/" icon={<Facebook size={18} />} />
+                  <SocialIcon href="https://www.instagram.com/cjar_t?igsh=b3d2YWZjeGF6bG45" icon={<Instagram size={18} />} />
+                  <SocialIcon href="https://www.tiktok.com/@cj.jonas0?_t=8qNgGzPAlqI&_r=1" icon={<FaTiktok size={18} />} />
             </div>
           </div>
 

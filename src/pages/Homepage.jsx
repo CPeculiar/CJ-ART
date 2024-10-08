@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Youtube, Instagram, Twitter, Menu, X, MapPin, Phone, Mail } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa'; 
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,7 +58,7 @@ export default function HomePage() {
         </div>
         <nav className={`absolute left-0 right-0 top-full bg-gray-900 md:bg-transparent ${isMenuOpen ? 'block' : 'hidden'} md:relative md:block`}>
           <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm p-4 md:p-0">
-            <li><a href="#" className="hover:text-teal-400">HOME</a></li>
+            <li><a href="/" className="hover:text-teal-400">HOME</a></li>
             <li><a href="#about" className="hover:text-teal-400">ABOUT US</a></li>
             <li><a href="/services" className="hover:text-teal-400">OUR SERVICES</a></li>
             <li><a href="#contact" className="hover:text-teal-400">CONTACT US</a></li>
@@ -97,9 +98,9 @@ export default function HomePage() {
               <div className="flex items-center space-x-4">
                 <span>Socials:</span>
                 <div className="flex space-x-2">
-                  <SocialIcon href="https://web.facebook.com/thelordsbrethrenchurchintl" icon={<Facebook size={18} />} />
-                  <SocialIcon href="https://www.youtube.com/@thelordsbrethrenchurchintl" icon={<Youtube size={18} />} />
-                  <SocialIcon href="https://www.instagram.com/elochukwutlbc" icon={<Instagram size={18} />} />
+                  <SocialIcon href="https://www.facebook.com/share/1XGrPAxi4u/" icon={<Facebook size={18} />} />
+                  <SocialIcon href="https://www.instagram.com/cjar_t?igsh=b3d2YWZjeGF6bG45" icon={<Instagram size={18} />} />
+                  <SocialIcon href="https://www.tiktok.com/@cj.jonas0?_t=8qNgGzPAlqI&_r=1" icon={<FaTiktok size={18} />} />
                 </div>
               </div>
             </div>
@@ -298,10 +299,9 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <h2 className="text-2xl font-bold mb-4 md:mb-0">CJ ART</h2>
             <div className="flex space-x-4">
-            <SocialIcon href="https://twitter.com/ElochukwuTLBC" icon={<Twitter size={18} />} />
-              <SocialIcon href="https://www.instagram.com/elochukwutlbc" icon={<Instagram size={18} />} />
-              <SocialIcon href="https://www.youtube.com/@thelordsbrethrenchurchintl" icon={<Youtube size={18} />} />
-              <SocialIcon href="https://web.facebook.com/thelordsbrethrenchurchintl" icon={<Facebook size={18} />} />
+            <SocialIcon href="https://www.facebook.com/share/1XGrPAxi4u/" icon={<Facebook size={18} />} />
+                  <SocialIcon href="https://www.instagram.com/cjar_t?igsh=b3d2YWZjeGF6bG45" icon={<Instagram size={18} />} />
+                  <SocialIcon href="https://www.tiktok.com/@cj.jonas0?_t=8qNgGzPAlqI&_r=1" icon={<FaTiktok size={18} />} />
             </div>
           </div>
 
@@ -310,20 +310,20 @@ export default function HomePage() {
               <h5 className="text-lg font-semibold mb-4">Links</h5>
               <ul className="space-y-2">
                 <li><Link to="/" className="hover:text-teal-400">Home</Link></li>
-                <li><Link to="#" className="hover:text-teal-400">About us</Link></li>
-                <li><Link to="#" className="hover:text-teal-400">Our Services</Link></li>
-                <li><Link to="#" className="hover:text-teal-400">Contact us</Link></li>
+                <li><Link to="#about" className="hover:text-teal-400">About us</Link></li>
+                <li><Link to="/services" className="hover:text-teal-400">Our Services</Link></li>
+                <li><Link to="#contact" className="hover:text-teal-400">Contact us</Link></li>
               </ul>
             </div>
 
             <div>
               <h5 className="text-lg font-semibold mb-4">Have any question?</h5>
               <div className="space-y-2">
-                <a href="tel:0913-444-5037" className="flex items-center hover:text-teal-400">
+                <a href="tel:0812-811-2674" className="flex items-center hover:text-teal-400">
                   <Phone size={18} className="mr-2" />
                   0812-811-2674
                 </a>
-                <a href="mailto:info@thelordsbrethrenchurch.org" className="flex items-center hover:text-teal-400">
+                <a href="mailto:cjart2024@gmail.com" className="flex items-center hover:text-teal-400">
                   <Mail size={18} className="mr-2" />
                   cjart2024@gmail.com
                 </a>
