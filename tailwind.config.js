@@ -23,6 +23,9 @@ export default {
       fontSize: {
         '7xl': '74px',
       },
+      gridTemplateColumns: {
+        'auto-fill': 'repeat(auto-fill, minmax(200px, 1fr))',
+      },
     },
   },
   plugins: [],

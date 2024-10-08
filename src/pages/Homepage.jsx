@@ -59,7 +59,7 @@ export default function HomePage() {
           <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm p-4 md:p-0">
             <li><a href="#" className="hover:text-teal-400">HOME</a></li>
             <li><a href="#about" className="hover:text-teal-400">ABOUT US</a></li>
-            <li><a href="#services" className="hover:text-teal-400">OUR SERVICES</a></li>
+            <li><a href="/services" className="hover:text-teal-400">OUR SERVICES</a></li>
             <li><a href="#contact" className="hover:text-teal-400">CONTACT US</a></li>
           </ul>
         </nav>
@@ -84,7 +84,7 @@ export default function HomePage() {
 
         <div className="relative z-10 container mx-auto px-6 h-full flex flex-col">
           <div className={`flex-grow flex flex-col items-center justify-center text-center transition-all duration-300 ease-in-out ${isMenuOpen ? 'mt-40 md:mt-0' : ''}`}>
-            <p className="text-sm uppercase mb-2">The Lord's Brethren Church International Presents</p>
+            <p className="text-sm uppercase mb-2"></p>
             <h1 className="text-3xl md:text-5xl font-bold mb-4"> WELCOME TO CJ ART</h1>
             <h2 className="text-2xl md:text-3xl text-teal-400 mb-6">signage | interior decoration | cladding</h2>
             
@@ -162,8 +162,8 @@ export default function HomePage() {
                     👥
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900">Our Annual Homecoming</h4>
-                    <p className="text-gray-700">An amazing experience</p>
+                    <h4 className="text-xl font-bold text-gray-900">Our People </h4>
+                    <p className="text-gray-700">Trained, Talented, Skilled and Excellent</p>
                   </div>
                 </div>
               </div>

@@ -16,6 +16,7 @@ import NotFound from './pages/NotFound';
 import Layout from './components/Layout';
 import Profile from './pages/Profile';
 import Test from './pages/Test';
+import OurServices from './pages/OurServices';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/test" element={<Test />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegistrationForm />} />
+        <Route path="/services" element={<OurServices />} />
 
 
        {/* Private routes wrapped in Layout */}
