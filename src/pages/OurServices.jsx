@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Youtube, Instagram, Twitter, Menu, X, MapPin, Phone, Mail } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa'; 
 
 const OurServices = () => {
   const [previewVisible, setPreviewVisible] = useState(false);
